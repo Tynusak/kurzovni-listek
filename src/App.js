@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home/Home';
-import { Currency } from './components/Currency/Currency';
+import { Detail } from './components/Detail/Detail';
 
 export const App = () => {
+  const [row, setRow] = useState(0);
+  const handleRow = (index) => {
+    setRow(index);
+  };
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/currency" element={<Currency />} />
+          <Route path="/" element={<Home onRowClick={handleRow} />} />
+          <Route path="/detail/:id" element={<Detail index={row} />} />
           <Route
             path="*"
             element={

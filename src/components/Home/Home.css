@@ -1,0 +1,70 @@
+.home {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+h1 {
+  color: rgb(38, 125, 3);
+  width: 100%;
+  padding: 1rem;
+}
+
+table {
+  padding: 0 2rem 1rem 2 rem;
+  border-collapse: collapse;
+  line-height: 2;
+}
+
+.mainTable {
+  width: 100%;
+}
+thead {
+  font-weight: bold;
+  color: green;
+  border-bottom: 1px solid green;
+  border-top: 1px solid green;
+  background-color: azure;
+}
+tr {
+  width: 100%;
+  display: table-row;
+}
+tr:hover,
+tr:focus {
+  background-color: azure;
+  cursor: pointer;
+}
+td {
+  width: calc(100 / 4);
+}
+.country,
+.currency {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .country {
+    display: table-cell;
+  }
+  td {
+    width: calc(100 / 5);
+  }
+}
+
+@media (min-width: 900px) {
+  .currency {
+    display: table-cell;
+  }
+  .mainTable {
+    width: 90%;
+  }
+  td {
+    width: calc(100 / 6);
+  }
+}
+@media (min-width: 1600px) {
+  .mainTable {
+    width: 70%;
+  }
+}
