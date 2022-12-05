@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './TableRow.css';
 
 export const TableRow = ({ currency, index, onRowClick }) => {
   let navigate = useNavigate();
@@ -8,7 +9,7 @@ export const TableRow = ({ currency, index, onRowClick }) => {
     navigate(`/detail/${currency.shortName}`);
   };
   return (
-    <tr onClick={handleClick}>
+    <tr className="rowMain" onClick={handleClick}>
       <td className="country">{currency.country}</td>
       <td className="currency">{currency.name}</td>
       <td>{currency.shortName}</td>

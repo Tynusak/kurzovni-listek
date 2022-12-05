@@ -5,7 +5,7 @@ import { Home } from './components/Home/Home';
 import { Detail } from './components/Detail/Detail';
 
 export const App = () => {
-  const [row, setRow] = useState(0);
+  const [row, setRow] = useState('');
   const handleRow = (index) => {
     setRow(index);
   };
@@ -14,7 +14,10 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home onRowClick={handleRow} />} />
-          <Route path="/detail/:id" element={<Detail index={row} />} />
+          <Route
+            path="/detail/:id"
+            element={<Detail index={row} onMenuItemClick={handleRow} />}
+          />
           <Route
             path="*"
             element={

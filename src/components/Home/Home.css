@@ -11,30 +11,26 @@ h1 {
 }
 
 table {
-  padding: 0 2rem 1rem 2 rem;
   border-collapse: collapse;
   line-height: 2;
 }
 
 .mainTable {
+  padding: 0 2rem 1rem 2 rem;
   width: 100%;
 }
-thead {
-  font-weight: bold;
-  color: green;
-  border-bottom: 1px solid green;
-  border-top: 1px solid green;
+.mainTable > thead {
   background-color: azure;
+  border-top: 1px solid green;
+  border-bottom: 1px solid green;
+  color: green;
+  font-weight: 500;
 }
 tr {
   width: 100%;
   display: table-row;
 }
-tr:hover,
-tr:focus {
-  background-color: azure;
-  cursor: pointer;
-}
+
 td {
   width: calc(100 / 4);
 }

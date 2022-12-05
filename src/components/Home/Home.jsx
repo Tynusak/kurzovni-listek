@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TableRow } from '../TableRow/TableRow';
 import './Home.css';
+import { Header } from '../Header/Header';
 
 export const Home = ({ onRowClick }) => {
   const [currencies, setCurrencies] = useState(null);
@@ -15,16 +16,14 @@ export const Home = ({ onRowClick }) => {
 
   return (
     <>
-      <header>
-        <h3></h3>
-      </header>
+      <Header onRowClick={onRowClick} />
       <hr />
       <main className="home">
         <h1>Currency exchange rates</h1>
         <table className="mainTable">
           <thead>
             <tr>
-              <td className="country">{'Country'}</td>
+              <td className="country homecell">{'Country'}</td>
               <td className="currency">{'Currency'}</td>
               <td>{'Code'}</td>
               <td>{'Amount'}</td>

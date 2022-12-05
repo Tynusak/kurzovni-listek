@@ -1,0 +1,5 @@
+.rowMain:hover,
+.rowMain:focus {
+  background-color: azure;
+  cursor: pointer;
+}
