@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TableRow.css';
 
-export const TableRow = ({ currency, index, onRowClick }) => {
+export const TableRow = ({ currency, index }) => {
   let navigate = useNavigate();
+
   const handleClick = () => {
-    onRowClick(index);
-    navigate(`/detail/${currency.shortName}`);
+    navigate(`/detail/${index}`);
   };
   return (
     <tr className="rowMain" onClick={handleClick}>

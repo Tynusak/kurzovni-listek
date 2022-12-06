@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-export const Header = ({ onRowClick }) => {
+export const Header = () => {
   const [open, setOpen] = useState(false);
+
   return (
     <header>
       <div className="navigation">
@@ -21,29 +22,26 @@ export const Header = ({ onRowClick }) => {
           <li
             className="nav__link"
             onClick={() => {
-              onRowClick(5);
               setOpen(!open);
             }}
           >
-            <Link to="/detail/EUR">Euro</Link>
+            <Link to="/detail/5">Euro</Link>
           </li>
           <li
             className="nav__link"
             onClick={() => {
-              onRowClick(18);
               setOpen(!open);
             }}
           >
-            <Link to="/detail/USD">Dollar</Link>
+            <Link to="/detail/18">Dollar(USA)</Link>
           </li>
           <li
             className="nav__link"
             onClick={() => {
-              onRowClick(6);
               setOpen(!open);
             }}
           >
-            <Link to="/detail/GBP">Pound</Link>
+            <Link to="/detail/6">Pound</Link>
           </li>
         </ul>
       </div>

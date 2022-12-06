@@ -33,25 +33,29 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.2rem;
   width: fit-content;
   background-color: white;
-  padding-right: 2rem;
-  padding-bottom: 1rem;
+  padding: 1rem 2rem;
 }
 
 .nav__closed {
   display: none;
 }
-
+li {
+  width: 100%;
+  padding: 0.5rem;
+}
+li:hover,
+li:focus {
+  background-color: azure;
+}
 .nav__link {
   width: 100%;
   font-weight: 600;
   text-transform: uppercase;
 }
-.nav__link:hover {
-  background-color: azure;
-}
+
 @media (min-width: 650px) {
   .navigation {
     position: relative;
@@ -66,7 +70,15 @@ a {
     display: flex;
     flex-direction: row;
     gap: 0.7rem;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .nav__menu {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    padding: 0 2rem;
   }
 }

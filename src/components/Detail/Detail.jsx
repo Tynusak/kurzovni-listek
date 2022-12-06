@@ -1,37 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { Header } from '../Header/Header';
 import './Detail.css';
+import { useParams } from 'react-router-dom';
 
-export const Detail = ({ index, onMenuItemClick }) => {
-  const [currency, setCurrency] = useState({});
-
-  useEffect(() => {
-    fetch(
-      'https://webapi.developers.erstegroup.com/api/csas/public/sandbox/v2/rates/exchangerates?web-api-key=c52a0682-4806-4903-828f-6cc66508329e',
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCurrency(data[index]);
-      });
-  }, [index]);
+export const Detail = ({ onMenuItemClick, currency }) => {
+  let { id } = useParams();
 
   return (
     <>
-      <Header onRowClick={onMenuItemClick} />
+      <Header />
       <main className="detail">
         <h1>
           {currency === {}
             ? '...Loading'
-            : `${currency.name}(${currency.country})`}
+            : `${currency[id].name}(${currency[id].country})`}
         </h1>
         <div className="cnbRate">
           <h2>Rate (ČNB mid)</h2>
           <div className="rate">
-            <span>{currency.amount}</span>
-            <span>{currency.shortName}</span>
+            <span>{currency[id].amount}</span>
+            <span>{currency[id].shortName}</span>
             <span>=</span>
-            <span>{currency.cnbMid}</span>
+            <span>{currency[id].cnbMid}</span>
             <span>CZK</span>
           </div>
         </div>
@@ -48,15 +38,15 @@ export const Detail = ({ index, onMenuItemClick }) => {
           <tbody>
             <tr>
               <td className="left">Current rate</td>
-              <td>{currency.currBuy}</td>
-              <td>{currency.currSell}</td>
-              <td className="mid">{currency.currMid}</td>
+              <td>{currency[id].currBuy}</td>
+              <td>{currency[id].currSell}</td>
+              <td className="mid">{currency[id].currMid}</td>
             </tr>
             <tr>
               <td className="left">Previous rate</td>
-              <td>{currency.valBuy}</td>
-              <td>{currency.valSell}</td>
-              <td className="mid">{currency.valMid}</td>
+              <td>{currency[id].valBuy}</td>
+              <td>{currency[id].valSell}</td>
+              <td className="mid">{currency[id].valMid}</td>
             </tr>
           </tbody>
         </table>
